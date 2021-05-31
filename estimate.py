@@ -5,12 +5,12 @@ class TestWallis(unittest.TestCase):
     def test_low_iters(self):
         for i in range(0, 5):
             pi = wallis(i)
-            self.assertTrue(abs(pi - math.pi) > 0.15, msg=f"Estimate with just {i} iterations is {pi} which is too accurate.\n")
+            self.assertTrue(abs(pi - math.pi) > 0.15, msg=f("Estimate with just {i} iterations is {pi} which is too accurate.\n")
             
     def test_high_iters(self):
         for i in range(500, 600):
             pi = wallis(i)
-            self.assertTrue(abs(pi - math.pi) < 0.01, msg=f"Estimate with even {i} iterations is {pi} which is not accurate enough.\n")
+            self.assertTrue(abs(pi - math.pi) < 0.01, msg=f("Estimate with even {i} iterations is {pi} which is not accurate enough.\n")
 
 
 class TestMC(unittest.TestCase):
@@ -29,8 +29,8 @@ class TestMC(unittest.TestCase):
         
     
 if __name__ == "__main__":
-unittest.main()
-def wallis(n):
+ unittest.main()
+  def wallis(n):
     pi = 0.0   
     for i in range(1, n):
         x = 4 * (i ** 2)
@@ -42,20 +42,20 @@ def wallis(n):
             pi *= z
     pi *= 2
     return pi
-n=input()
-print(wallis(n))
+  n=input()
+  print(wallis(n))
 
-import random
-import math
-def monte_carlo(total):
- inside = 0
- for i in range(0, total):
-  x = random.random()
-  y = random.random()
-  if math.sqrt(x**2 + y**2) < 1.0:
+  import random
+  import math
+  def monte_carlo(total):
+   inside = 0
+   for i in range(0, total):
+    x = random.random()
+    y = random.random()
+   if math.sqrt(x**2 + y**2) < 1.0:
     inside += 1
- pi = (float(inside) / total) * 4
- return pi
-total=input()
-print(monte_carlo(total))
+   pi = (float(inside) / total) * 4
+   return pi
+  total=input()
+  print(monte_carlo(total))
     
